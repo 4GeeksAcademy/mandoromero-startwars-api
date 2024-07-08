@@ -9,6 +9,10 @@ import { Layout } from "./pages/Layout";
 import { Home } from "./pages/Home";
 import { Single } from "./pages/Single";
 import { Demo } from "./pages/Demo";
+import Details from "./components/Details";
+import EntityList from "./components/EntityList";
+import { Actions } from './components/Actions';
+import Favorites from './components/Favorites';
 
 
 
@@ -28,6 +32,10 @@ export const router = createBrowserRouter(
         <Route path= "/" element={<Home />} />
         <Route path="/single/:theId" element={ <Single />} />  {/* Dynamic route for single items */}
         <Route path="/demo" element={<Demo />} />
+        <Route path="/Details" element={<Details />} />
+        <Route path="/EntityList" element={<EntityList />} />
+        <Route path="/Actions" element={<Actions />} />
+        <Route path="/Favorites" element={<Favorites />} />
       </Route>
     )
 );

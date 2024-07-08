@@ -9,7 +9,7 @@ export const removeFromFavorites = (entity) => ({
         {entity ? (
           <>
             <h1>{entity.name}</h1>
-            {/* Render additional details about the entity */}
+            {}
             <p>Details about the entity will go here.</p>
           </>
         ) : (
