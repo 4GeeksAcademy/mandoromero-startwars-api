@@ -6,7 +6,7 @@ import { Footer } from '../components/Footer';
 import Home from './Home';
 import Details from '../components/Details';
 import Favorites from '../components/Favorites';
-import { fetchPeople, fetchVehicles, fetchPlanets } from './Actions';
+import { fetchPeople, fetchVehicles, fetchPlanets } from '../components/Actions';
 import useGlobalReducer from '../hooks/useGlobalReducer';
 
 export const Layout = () => {
@@ -24,7 +24,7 @@ export const Layout = () => {
             <div className="container">
                 <Routes>
                     <Route path="/" element={<Home />} />
-                    <Route path="/details/:id" element={<Detail />} />
+                    <Route path="/details/:id" element={<Details />} />
                     <Route path="/favorites" element={<Favorites />} />
                 </Routes>
             </div>

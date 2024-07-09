@@ -1,15 +1,14 @@
-export const removeFromFavorites = (entity) => ({
-    type: REMOVE_FROM_FAVORITES,
-    payload: entity,
-  });
-  src>components>details.jsx
+import React from 'react';
+import EntityList from './EntityList'; 
+import store from '../store'; 
+
+const Details = ({ entityType, uid, entity }) => {
   if (entityType && uid) {
     return (
       <div className="container">
         {entity ? (
           <>
             <h1>{entity.name}</h1>
-            {}
             <p>Details about the entity will go here.</p>
           </>
         ) : (
@@ -18,20 +17,18 @@ export const removeFromFavorites = (entity) => ({
       </div>
     );
   }
-  
+
   // Render lists of entities if entityType and uid are not present
   return (
     <div className="container">
       <h1>People</h1>
       <EntityList entities={store.characters} entityType="characters" />
-  
       <h1>Vehicles</h1>
       <EntityList entities={store.vehicles} entityType="vehicles" />
-  
       <h1>Planets</h1>
       <EntityList entities={store.planets} entityType="planets" />
     </div>
   );
-  
-  
-  export default Details;
+};
+
+export default Details;

@@ -43,3 +43,19 @@ export const fetchPlanets = () => async (dispatch) => {
     console.error('Failed to fetch planets', error);
   }
 };
+
+// Default export
+const Actions = {
+  ADD_TO_FAVORITES,
+  REMOVE_FROM_FAVORITES,
+  SET_PEOPLE,
+  SET_VEHICLES,
+  SET_PLANETS,
+  addToFavorites,
+  removeFromFavorites,
+  fetchPeople,
+  fetchVehicles,
+  fetchPlanets,
+};
+
+export default Actions;
