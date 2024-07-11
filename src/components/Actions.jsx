@@ -16,7 +16,7 @@ export const removeFromFavorites = (entity) => ({
 
 export const fetchPeople = () => async (dispatch) => {
   try {
-    const response = await fetch('https://swapi.dev/api/people/');
+    const response = await fetch('https://swapi.tech/api/people/');
     const data = await response.json();
     dispatch({ type: SET_PEOPLE, payload: data.results });
   } catch (error) {
@@ -26,7 +26,7 @@ export const fetchPeople = () => async (dispatch) => {
 
 export const fetchVehicles = () => async (dispatch) => {
   try {
-    const response = await fetch('https://swapi.dev/api/vehicles/');
+    const response = await fetch('https://swapi.tech/api/vehicles/');
     const data = await response.json();
     dispatch({ type: SET_VEHICLES, payload: data.results });
   } catch (error) {
@@ -36,7 +36,7 @@ export const fetchVehicles = () => async (dispatch) => {
 
 export const fetchPlanets = () => async (dispatch) => {
   try {
-    const response = await fetch('https://swapi.dev/api/planets/');
+    const response = await fetch('https://swapi.tech/api/planets/');
     const data = await response.json();
     dispatch({ type: SET_PLANETS, payload: data.results });
   } catch (error) {

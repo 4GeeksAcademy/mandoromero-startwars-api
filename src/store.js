@@ -1,4 +1,3 @@
-// store.js
 import {
   ADD_TO_FAVORITES,
   REMOVE_FROM_FAVORITES,
@@ -16,34 +15,38 @@ export const initialStore = () => ({
   favorites: [],
 });
 
-export default function storeReducer(store, action = {}) {
+export default function storeReducer(state = initialStore(), action = {}) {
+  console.log('Reducer action:', action);  // Log the action with details
+
   switch(action.type) {
     case SET_PEOPLE:
       return {
-        ...store,
+        ...state,
         characters: action.payload
       };
     case SET_VEHICLES:
       return {
-        ...store,
+        ...state,
         vehicles: action.payload
       };
     case SET_PLANETS:
       return {
-        ...store,
+        ...state,
         planets: action.payload
       };
     case ADD_TO_FAVORITES:
       return {
-        ...store,
-        favorites: [...store.favorites, action.payload]
+        ...state,
+        favorites: [...state.favorites, action.payload]
       };
     case REMOVE_FROM_FAVORITES:
       return {
-        ...store,
-        favorites: store.favorites.filter(item => item.uid !== action.payload.uid)
+        ...state,
+        favorites: state.favorites.filter(item => item.uid !== action.payload.uid)
       };
     default:
-      throw new Error(`Unknown action: ${action.type}`);
-  }    
+      console.error(`Unknown action: ${action.type}`, action);  // Log unknown action types with action details
+      return state;
+  }
 }
+
