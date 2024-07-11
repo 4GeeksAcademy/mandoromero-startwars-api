@@ -14,7 +14,7 @@ export const removeFromFavorites = (entity) => ({
   payload: entity,
 });
 
-export const fetchPeople = () => async (dispatch) => {
+export const fetchPeople = async (dispatch) => {
   try {
     const response = await fetch('https://swapi.tech/api/people/');
     const data = await response.json();
@@ -24,7 +24,7 @@ export const fetchPeople = () => async (dispatch) => {
   }
 };
 
-export const fetchVehicles = () => async (dispatch) => {
+export const fetchVehicles = async (dispatch) => {
   try {
     const response = await fetch('https://swapi.tech/api/vehicles/');
     const data = await response.json();
@@ -34,7 +34,7 @@ export const fetchVehicles = () => async (dispatch) => {
   }
 };
 
-export const fetchPlanets = () => async (dispatch) => {
+export const fetchPlanets = async (dispatch) => {
   try {
     const response = await fetch('https://swapi.tech/api/planets/');
     const data = await response.json();

@@ -1,11 +1,20 @@
-import React from 'react';
+import React, {useEffect, useState} from 'react';
 import EntityList from './EntityList'; 
 import store from '../store'; 
+import { useParams } from 'react-router-dom';
 
-const Details = ({ entityType, uid, entity }) => {
-  if (entityType && uid) {
-    return (
-      <div className="container">
+const Details = () => {
+  const {id, type} = useParams()
+  const [entity, setEntity] = useState({})
+
+ useEffect(async()=>{
+  let response = await fetch(`https://www.swapi.tech/api/${type}/${id}`)
+  let data = await response.json()
+  setEntity(data.results.property)
+}, []) 
+  // Render lists of entities if entityType and uid are not present
+  return (
+    <div className="container">
         {entity ? (
           <>
             <h1>{entity.name}</h1>
@@ -15,19 +24,6 @@ const Details = ({ entityType, uid, entity }) => {
           <div>Loading...</div>
         )}
       </div>
-    );
-  }
-
-  // Render lists of entities if entityType and uid are not present
-  return (
-    <div className="container">
-      <h1>People</h1>
-      <EntityList entities={store.characters} entityType="characters" />
-      <h1>Vehicles</h1>
-      <EntityList entities={store.vehicles} entityType="vehicles" />
-      <h1>Planets</h1>
-      <EntityList entities={store.planets} entityType="planets" />
-    </div>
   );
 };
 

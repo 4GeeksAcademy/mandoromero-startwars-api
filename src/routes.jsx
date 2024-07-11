@@ -12,7 +12,7 @@ export const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="*" element={<Layout />} errorElement={<h1>Not found!</h1>} >
       <Route index element={<Home />} />
-      <Route path="details/:id" element={<Details />} />
+      <Route path="details/:type/:id" element={<Details />} />
       <Route path="favorites" element={<Favorites />} />
     </Route>
   )
